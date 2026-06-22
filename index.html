@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>南北过敏差异根源分析 - 地图版</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+<style>
+*{margin:0;padding:0;font-family:Microsoft YaHei}
+.top{height:70px;background:linear-gradient(135deg,#1e40af,#3b82f6);color:#fff;display:flex;align-items:center;padding:0 40px;}
+.content{display:flex;height:calc(100vh - 70px);}
+.left-panel{width:45%;background:#f8fafc;padding:20px;overflow-y:auto;border-right:1px solid #e2e8f0;}
+.right-panel{width:55%;background:#fff;display:flex;flex-direction:column;}
+.map-box{flex:1;position:relative;}
+.chart-row{display:flex;height:50%;gap:10px;padding:10px;}
+.chart-box{flex:1;background:#f8fafc;border-radius:8px;}
+.section{background:#fff;border-radius:12px;padding:20px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+.section h3{color:#1e40af;margin-bottom:12px;font-size:16px;padding-left:8px;border-left:3px solid #3b82f6;}
+.section p{color:#64748b;font-size:13px;line-height:1.7;margin-bottom:8px;}
+.region-card{border-radius:8px;padding:14px;margin-bottom:12px;}
+.region-card.north{background:linear-gradient(135deg,#fee2e2,#fecaca);border-left:4px solid #ef4444;}
+.region-card.river{background:linear-gradient(135deg,#fef3c7,#fde68a);border-left:4px solid #f59e0b;}
+.region-card.south{background:linear-gradient(135deg,#d1fae5,#a7f3d0);border-left:4px solid #10b981;}
+.region-card h4{color:#334155;margin-bottom:6px;font-size:14px;}
+.region-card p{color:#64748b;font-size:12px;line-height:1.6;margin-bottom:4px;}
+.factor-list{list-style:none;padding:0;}
+.factor-list li{padding:8px 12px;background:#f1f5f9;border-radius:6px;margin-bottom:6px;color:#475569;font-size:13px;}
+.legend-box{position:absolute;bottom:20px;right:20px;background:rgba(255,255,255,0.95);border-radius:10px;padding:15px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+.legend-title{font-weight:bold;color:#334155;margin-bottom:10px;font-size:13px;}
+.legend-item{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:12px;color:#64748b;}
+.legend-color{width:20px;height:14px;border-radius:3px;}
+.highlight{background:#fef3c7;color:#92400e;padding:2px 6px;border-radius:3px;font-weight:bold;font-size:12px;}
+</style>
+</head>
+<body>
+<div class="top">
+    <h1>南北过敏差异根源分析 - 地图可视化</h1>
+</div>
+<div class="content">
+    <div class="left-panel">
+        <div class="section">
+            <h3>📌 核心结论</h3>
+            <p><strong>北方</strong>以季节性风媒花粉为绝对主导，分春木、秋草双高峰；<strong>南方</strong>花粉影响偏弱，常年过敏原以尘螨、霉菌为主，花粉仅作叠加诱因。</p>
+        </div>
+        <div class="region-card north">
+            <h4>❄️ 北方（高风险区）</h4>
+            <p><strong>春季（3-5月）：</strong>圆柏/侧柏、杨树、柳树、榆树、桦树</p>
+            <p><strong>夏秋（8-9月）：</strong>蒿属（致敏率88.51%）、葎草、藜科、豚草</p>
+            <p class="highlight">特征：干燥多风，花粉形成"黄雾"，悬浮数十公里</p>
+        </div>
+        <div class="region-card river">
+            <h4>🌊 长江流域（过渡区）</h4>
+            <p><strong>春季：</strong>法桐（悬铃木）、构树、松、枫杨</p>
+            <p><strong>夏秋：</strong>禾本科草粉，蒿草浓度远低于北方</p>
+            <p class="highlight">特征：花粉+螨虫混合致敏，梅雨季加重</p>
+        </div>
+        <div class="region-card south">
+            <h4>🌴 华南/西南（低风险区）</h4>
+            <p><strong>少量花粉：</strong>杉木、榕树、桉树、常绿阔叶树</p>
+            <p><strong>城市花卉：</strong>桃花、桂花、杜鹃（虫媒花，不致敏）</p>
+            <p class="highlight">特征：尘螨致敏率超84%，花粉仅作叠加诱因</p>
+        </div>
+        <div class="section">
+            <h3>🌳 四大差异根源</h3>
+            <ul class="factor-list">
+                <li><strong>植被类型：</strong>北方风媒花（花粉小、产量大）vs 南方虫媒花（花粉大、粘性强）</li>
+                <li><strong>气候条件：</strong>北方干燥多风（利于花粉扩散）vs 南方湿润多雨（花粉易沉降）</li>
+                <li><strong>季节规律：</strong>北方春秋双高峰 vs 南方全年平缓无高峰</li>
+                <li><strong>疾病分型：</strong>北方季节性花粉症 vs 南方常年性鼻炎</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>💡 出行建议</h3>
+            <p><strong>北方出发：</strong>春季（3-5月）、秋季（8-9月）尽量直飞南方</p>
+            <p><strong>南方出发：</strong>全年适宜，注意梅雨季尘螨防护</p>
+            <p><strong>过渡地带：</strong>春季注意法桐花粉，夏季注意螨虫</p>
+        </div>
+    </div>
+    <div class="right-panel">
+        <div class="map-box" id="map"></div>
+        <div class="chart-row">
+            <div class="chart-box" id="typeChart"></div>
+            <div class="chart-box" id="seasonChart"></div>
+        </div>
+        <div class="legend-box">
+            <div class="legend-title">花粉风险等级</div>
+            <div class="legend-item"><div class="legend-color" style="background:#ef4444"></div>高风险区（北方）</div>
+            <div class="legend-item"><div class="legend-color" style="background:#f59e0b"></div>中风险区（过渡带）</div>
+            <div class="legend-item"><div class="legend-color" style="background:#22c55e"></div>低风险区（南方）</div>
+        </div>
+    </div>
+</div>
+<script>
+const mapChart = echarts.init(document.getElementById('map'));
+const mapOption = {
+    backgroundColor:'transparent',
+    title:{text:'全国致敏花粉风险分布',left:'center',top:15,textStyle:{fontSize:16,color:'#334155'}},
+    tooltip:{trigger:'item',formatter:function(params){
+        const info = {
+            '北京':'高风险\n主要花粉：柏树(46.3%)、杨树、柳树',
+            '天津':'高风险\n主要花粉：杨树、柳树、榆树',
+            '河北':'高风险\n主要花粉：杨树、柳树、柏树',
+            '山西':'高风险\n主要花粉：杨树、榆树、桦树',
+            '内蒙古':'高风险\n主要花粉：杨树、榆树、沙蒿',
+            '辽宁':'高风险\n主要花粉：桦树、杨树、松树',
+            '吉林':'高风险\n主要花粉：桦树、杨树、榆树',
+            '黑龙江':'高风险\n主要花粉：桦树、杨树',
+            '山东':'高风险\n主要花粉：杨树、柳树、柏树',
+            '河南':'中高风险\n主要花粉：杨树、柳树、法桐',
+            '陕西':'高风险\n主要花粉：杨树、榆树、沙蒿',
+            '甘肃':'高风险\n主要花粉：杨树、榆树、沙蒿',
+            '宁夏':'高风险\n主要花粉：杨树、沙蒿',
+            '新疆':'中高风险\n主要花粉：杨树、榆树',
+            '上海':'中风险\n主要花粉：法桐、构树',
+            '江苏':'中风险\n主要花粉：法桐、构树',
+            '浙江':'中风险\n主要花粉：松、柳杉',
+            '安徽':'中风险\n主要花粉：法桐、柏',
+            '湖北':'中风险\n主要花粉：法桐、构树',
+            '重庆':'中风险\n主要花粉：杉、柏',
+            '四川':'中风险\n主要花粉：杉、柏',
+            '福建':'低风险\n主要花粉：杉木、榕树',
+            '江西':'低风险\n主要花粉：杉、柏',
+            '湖南':'低风险\n主要花粉：杉、柏',
+            '广东':'低风险\n主要花粉：榕树、桉树',
+            '广西':'低风险\n主要花粉：榕树、木棉',
+            '海南':'低风险\n主要花粉：少量禾本科',
+            '贵州':'低风险\n主要花粉：杉、柏',
+            '云南':'低风险\n主要花粉：松树、桉树',
+            '西藏':'低风险\n花粉极少',
+            '青海':'中风险\n主要花粉：杨树、蒿草'
+        };
+        return `<div style="font-weight:bold;margin-bottom:5px;">${params.name}</div>${info[params.name]||''}`;
+    }},
+    visualMap:{min:0,max:3,left:20,bottom:100,inRange:{color:['#22c55e','#84cc16','#f59e0b','#ef4444']},textStyle:{color:'#64748b'}},
+    geo:{map:'china',roam:true,zoom:1.05,label:{show:true,fontSize:11,color:'#334155'},itemStyle:{borderColor:'#e2e8f0'}},
+    series:[{type:'map',geoIndex:0,data:[
+        {name:'北京',value:3},{name:'天津',value:3},{name:'河北',value:3},{name:'山西',value:3},{name:'内蒙古',value:3},
+        {name:'辽宁',value:3},{name:'吉林',value:3},{name:'黑龙江',value:3},{name:'山东',value:3},{name:'陕西',value:3},
+        {name:'甘肃',value:3},{name:'宁夏',value:3},{name:'新疆',value:2.5},{name:'河南',value:2.5},{name:'青海',value:2},
+        {name:'上海',value:2},{name:'江苏',value:2},{name:'浙江',value:2},{name:'安徽',value:2},{name:'湖北',value:2},
+        {name:'重庆',value:2},{name:'四川',value:2},{name:'福建',value:1},{name:'江西',value:1},{name:'湖南',value:1},
+        {name:'广东',value:1},{name:'广西',value:1},{name:'海南',value:0.5},{name:'贵州',value:1},{name:'云南',value:1},
+        {name:'西藏',value:0.5}
+    ],itemStyle:{areaColor:function(p){const c=['#22c55e','#84cc16','#f59e0b','#ef4444'];return c[Math.floor(p.value)]||'#22c55e';}}}]};
+mapChart.setOption(mapOption);
+const typeChart = echarts.init(document.getElementById('typeChart'));
+const typeOption = {
+    title:{text:'过敏原类型对比',left:'center',top:5,textStyle:{fontSize:12,color:'#64748b'}},
+    tooltip:{trigger:'item',formatter:'{b}: {d}%'},
+    legend:{orient:'vertical',right:5,top:'center',textStyle:{fontSize:11}},
+    series:[{type:'pie',radius:['45%','70%'],center:['40%','55%'],data:[
+        {value:65,name:'风媒花粉',itemStyle:{color:'#ef4444'}},
+        {value:25,name:'尘螨霉菌',itemStyle:{color:'#3b82f6'}},
+        {value:10,name:'虫媒花粉',itemStyle:{color:'#22c55e'}}
+    ]}]};
+typeChart.setOption(typeOption);
+const seasonChart = echarts.init(document.getElementById('seasonChart'));
+const seasonOption = {
+    title:{text:'花粉浓度季节变化',left:'center',top:5,textStyle:{fontSize:12,color:'#64748b'}},
+    tooltip:{trigger:'axis'},
+    legend:{data:['北方','南方'],bottom:5,textStyle:{fontSize:10}},
+    grid:{top:25,left:20,right:10,bottom:30},
+    xAxis:{type:'category',data:['3月','4月','5月','8月','9月'],axisLabel:{fontSize:10}},
+    yAxis:{type:'value',max:10,axisLabel:{fontSize:10}},
+    series:[
+        {name:'北方',type:'bar',data:[8,9.5,7.5,7,9.2],itemStyle:{color:'#ef4444'}},
+        {name:'南方',type:'bar',data:[2.8,3.2,3,3.5,3.8],itemStyle:{color:'#3b82f6'}}
+    ]};
+seasonChart.setOption(seasonOption);
+window.addEventListener('resize',()=>{mapChart.resize();typeChart.resize();seasonChart.resize();});
+</script>
+</body>
+</html>
